@@ -123,6 +123,9 @@ importers:
 
   packages/simple-ignore:
     dependencies:
+      '@types/lodash':
+        specifier: ^4.14.202
+        version: 4.14.202
       commander:
         specifier: ^12.0.0
         version: 12.0.0
@@ -135,15 +138,15 @@ importers:
       fs-extra:
         specifier: ^11.2.0
         version: 11.2.0
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       object-inspect:
         specifier: ^1.13.1
         version: 1.13.1
       pathe:
         specifier: ^1.1.2
         version: 1.1.2
-      remeda:
-        specifier: ^1.40.1
-        version: 1.40.1
       ts-toolbelt:
         specifier: ^9.6.0
         version: 9.6.0
@@ -1612,6 +1615,10 @@ packages:
   /@types/lint-staged@13.3.0:
     resolution: {integrity: sha512-WxGjVP+rA4OJlEdbZdT9MS9PFKQ7kVPhLn26gC+2tnBWBEFEj/KW+IbFfz6sxdxY5U6V7BvyF+3BzCGsAMHhNg==}
     dev: true
+
+  /@types/lodash@4.14.202:
+    resolution: {integrity: sha512-OvlIYQK9tNneDlS0VN54LLd5uiPCBOp7gS5Z0f1mjoJYBrtStzgmJBxONW3U6OZqdtNzZPmn9BS/7WI7BFFcFQ==}
+    dev: false
 
   /@types/mdast@3.0.15:
     resolution: {integrity: sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==}
@@ -5141,7 +5148,6 @@ packages:
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /log-symbols@4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}
@@ -6667,10 +6673,6 @@ packages:
       mdast-util-to-markdown: 2.1.0
       unified: 11.0.4
     dev: true
-
-  /remeda@1.40.1:
-    resolution: {integrity: sha512-p5HzqKlMK02mvnalm3mavRaUeRljqKoE7r0QgDDzbZ9C0jFowisYLPU9e52gCZOd7Dn6KAWTPbVucJtcPfAIxA==}
-    dev: false
 
   /repeat-string@1.6.1:
     resolution: {integrity: sha512-PV0dzCYDNfRi1jCDbJzpW7jNNDRuCOG/jI5ctQcGKt/clZD+YcPS3yIlWuTJMmESC8aevCFmWJy5wjAFgNqN6w==}

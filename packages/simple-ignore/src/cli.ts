@@ -2,8 +2,8 @@ import process from "node:process";
 
 import { Command } from "commander";
 import { cosmiconfig } from "cosmiconfig";
+import merge from "lodash/merge";
 import path from "pathe";
-import * as R from "remeda";
 
 import packageJson from "../package.json";
 import { generateIgnoreFiles } from ".";
@@ -76,6 +76,9 @@ function stringArgvToArr(str: string): Array<string> {
                   rootDir: path.resolve(rootDir || cwd, config.rootDir),
                 };
         });
+        const fallbackConfig: DeepPartialConfig = {
+          rootDir: rootDir || cwd,
+        };
         const overrideConfig: Partial<SingleConfig> = {
           ...(!options.dry ? {} : { dry: options.dry }),
           ...(!options.linterIgnoreRules
@@ -99,7 +102,7 @@ function stringArgvToArr(str: string): Array<string> {
                 dockerIgnoreFiles: stringArgvToArr(options.dockerIgnoreFiles),
               }),
         };
-        return configs.map((c) => R.merge(c, overrideConfig));
+        return configs.map((c) => merge({}, fallbackConfig, c, overrideConfig));
       })();
     return configs;
   })();

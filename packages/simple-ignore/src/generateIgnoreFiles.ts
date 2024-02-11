@@ -1,8 +1,9 @@
 import fastGlob from "fast-glob";
 import fs from "fs-extra";
+import merge from "lodash/merge";
+import uniq from "lodash/uniq";
 import objectInspect from "object-inspect";
 import path from "pathe";
-import * as R from "remeda";
 
 import { defaultConfig } from "./defaultConfig";
 import { gitignoreToDockerignore } from "./gitignoreToDockerignore";
@@ -11,7 +12,7 @@ import { nestIgnore } from "./nestIgnore";
 import type { DeepPartialConfig, SingleConfig } from "./types";
 
 async function generateIgnoreFiles(options?: DeepPartialConfig) {
-  const mergedOptions: SingleConfig = R.merge(defaultConfig, options);
+  const mergedOptions: SingleConfig = merge({}, defaultConfig, options);
   const gitignorePath = path.join(mergedOptions.rootDir, ".gitignore");
   const gitignore = await fs.readFile(gitignorePath, "utf8");
   const eol = guessEol(gitignore);
@@ -32,7 +33,7 @@ async function generateIgnoreFiles(options?: DeepPartialConfig) {
     const dockerRegularIgnoreFiles: Array<string> = [];
     const linterIgnoreFiles: Array<string> = [];
     const regularIgnoreFiles: Array<string> = [];
-    const allIgnoreFiles = R.uniq([
+    const allIgnoreFiles = uniq([
       ...mergedOptions.regularIgnoreFiles,
       ...mergedOptions.linterIgnoreFiles,
       ...mergedOptions.dockerignoreFiles,
