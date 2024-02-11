@@ -116,6 +116,16 @@ npx simple-ignore -lr __snapshots__,/package-lock.json,/pnpm-lock.yaml,/yarn.loc
 npx simple-ignore -r ..
 ```
 
+## API
+
+```ts
+import { generateIgnoreFiles } from "simple-ignore";
+
+await generateIgnoreFiles({
+  // configuration
+});
+```
+
 ## License
 
 [MIT](./LICENSE)
