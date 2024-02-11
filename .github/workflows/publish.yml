@@ -44,3 +44,4 @@ jobs:
           tag: ${{ steps.version.outputs.tag }}
           package: packages/simple-ignore
           access: public
+          ignore-scripts: false
