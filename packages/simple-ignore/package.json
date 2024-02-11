@@ -17,7 +17,7 @@
     }
   },
   "bin": {
-    "simple-ignore": "dist/cli.js"
+    "simple-ignore": "./dist/cli.js"
   },
   "files": [
     "dist"
