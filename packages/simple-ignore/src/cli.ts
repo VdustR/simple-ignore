@@ -62,12 +62,22 @@ function stringArgvToArr(str: string): Array<string> {
         : undefined;
     const configs: Array<DeepPartialConfig> =
       await (async function computeConfig() {
-        const configs: Array<DeepPartialConfig> = !cosmiconfigResult
-          ? [{}]
-          : await configToDeepPartialConfigs(cosmiconfigResult.config);
+        const configs: Array<DeepPartialConfig> = (
+          !cosmiconfigResult
+            ? [{}]
+            : await configToDeepPartialConfigs(cosmiconfigResult.config)
+        ).map(function fixRootDir(config): DeepPartialConfig {
+          return !("rootDir" in config)
+            ? config
+            : path.isAbsolute(config.rootDir)
+              ? config
+              : {
+                  ...config,
+                  rootDir: path.resolve(rootDir || cwd, config.rootDir),
+                };
+        });
         const overrideConfig: Partial<SingleConfig> = {
           ...(!options.dry ? {} : { dry: options.dry }),
-          ...(!rootDir ? {} : { rootDir }),
           ...(!options.linterIgnoreRules
             ? {}
             : {
