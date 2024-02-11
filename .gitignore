@@ -1,3 +1,5 @@
+!.*
+
 # Created by https://www.toptal.com/developers/gitignore/api/node
 # Edit at https://www.toptal.com/developers/gitignore?templates=node
 
@@ -149,3 +151,5 @@ dist
 !.env.*
 .env.local
 .env.*.local
+/packages/simple-ignore/LICENSE
+/packages/simple-ignore/README.md

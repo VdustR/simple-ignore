@@ -3,15 +3,12 @@
     "recommendations": [
       "dbaeumer.vscode-eslint",
       "streetsidesoftware.code-spell-checker",
-      "stylelint.vscode-stylelint",
     ],
   },
   "folders": [
     { "path": ".", "name": "root" },
-    { "path": "packages/app" },
-    { "path": "packages/build" },
+    { "path": "packages/simple-ignore" },
     { "path": "packages/tsconfig" },
-    { "path": "packages/utils" },
   ],
   "settings": {
     "css.validate": false,
@@ -19,7 +16,6 @@
     "editor.codeActionsOnSave": {
       "source.fixAll": "never",
       "source.fixAll.eslint": "explicit",
-      "source.fixAll.stylelint": "explicit",
       "source.organizeImports": "never",
     },
     "editor.formatOnSave": false,
@@ -35,6 +31,7 @@
       { "rule": "*semi", "severity": "off" },
       { "rule": "format/*", "severity": "off" },
       { "rule": "prettier/prettier", "severity": "off" },
+      { "rule": "simple-import-sort/*", "severity": "off" },
       { "rule": "style/*", "severity": "off" },
     ],
     "eslint.validate": [
@@ -46,15 +43,6 @@
     ],
     "less.validate": false,
     "scss.validate": false,
-    "stylelint.packageManager": "pnpm",
-    "stylelint.stylelintPath": "node_modules/stylelint",
-    "stylelint.validate": [
-      "css",
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
-    ],
     "typescript.tsdk": "root/node_modules/typescript/lib",
   },
 }

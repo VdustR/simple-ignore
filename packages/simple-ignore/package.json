@@ -1,0 +1,36 @@
+{
+  "name": "simple-ignore",
+  "version": "0.0.1",
+  "description": "One `.gitignore` file to rule them all.",
+  "license": "MIT",
+  "author": {
+    "name": "ViPro",
+    "email": "vdustr@gmail.com",
+    "url": "https://vdustr.dev"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": {
+    "simple-ignore": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "run-s build:*",
+    "build:api": "tsup src/index.ts --format esm,cjs",
+    "build:cli": "tsup src/cli.ts",
+    "build:dts": "tsc --emitDeclarationOnly --declaration --noEmit false --outDir dist -p src --rootDir src",
+    "cli": "tsx src/cli.ts",
+    "cp": "run-s cp:*",
+    "cp:license": "fse copy ../../LICENSE ./LICENSE",
+    "cp:readme": "fse copy ../../README.md ./README.md",
+    "prepublishOnly": "pnpm run build && pnpm run cp"
+  }
+}

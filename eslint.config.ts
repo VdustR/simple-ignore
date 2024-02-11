@@ -10,7 +10,6 @@ const compat = new FlatCompat();
 
 export default antfu(
   {
-    react: true,
     stylistic: false,
     jsonc: false,
     yaml: false,
@@ -43,6 +42,7 @@ export default antfu(
       "simple-import-sort": simpleImportSort,
     },
     rules: {
+      "import/order": "off",
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
     },

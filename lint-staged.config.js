@@ -11,7 +11,6 @@ const config = isFormat
       "**/package.json": "sort-package-json",
       "**/*.{cjs,js,jsx,md,mdx,ts,tsx}":
         "eslint --report-unused-disable-directives --fix --max-warnings=0",
-      "**/*.{css,js,jsx,ts,tsx}": "stylelint --fix",
       "**/*": "prettier --ignore-unknown --write",
     }
   : {

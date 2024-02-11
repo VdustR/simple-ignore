@@ -4,6 +4,7 @@
   "extends": [
     "@tsconfig/node20/tsconfig",
     "@tsconfig/strictest/tsconfig",
+    "@repo/tsconfig/bundle/tsconfig",
     "@repo/tsconfig/checkJs/tsconfig",
     "@repo/tsconfig/noEmit/tsconfig"
   ]
