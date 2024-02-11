@@ -11,21 +11,35 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "default": {
+        "default": "./dist/index.cjs",
+        "types": "./dist/index.d.cts"
+      },
+      "import": {
+        "default": "./dist/index.mjs",
+        "types": "./dist/index.d.mts"
+      }
+    },
+    "./*": {
+      "default": {
+        "default": "./dist/*.cjs",
+        "types": "./dist/*.d.cts"
+      },
+      "import": {
+        "default": "./dist/*.mjs",
+        "types": "./dist/*.d.mts"
+      }
     }
   },
-  "bin": {
-    "simple-ignore": "./dist/cli.cjs"
-  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "bin": "./bin/simple-ignore.cjs",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "run-s build:*",
-    "build:api": "tsup src/index.ts --format esm,cjs --dts --minify",
-    "build:cli": "tsup src/cli.ts",
+    "build": "unbuild",
     "cli": "tsx src/cli.ts",
     "cp": "run-s cp:*",
     "cp:license": "fse copy ../../LICENSE ./LICENSE",
