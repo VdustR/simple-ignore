@@ -89,7 +89,7 @@ export default defineConfig({
 
 You can also utilize other methods supported by [cosmiconfig](https://github.com/cosmiconfig/cosmiconfig), like adding a `simple-ignore` field to your `package.json` file.
 
-To view all available options, you can refer to the [default configuration](./src/defaultConfig.ts).
+To view all available options, you can refer to the [default configuration](https://github.com/VdustR/simple-ignore/blob/main/packages/simple-ignore/src/defaultConfig.ts).
 
 ## CLI
 
@@ -128,4 +128,6 @@ await generateIgnoreFiles({
 
 ## License
 
-[MIT](./LICENSE)
+[MIT](https://github.com/VdustR/simple-ignore/blob/main/LICENSE)
+
+Copyright (c) 2024 ViPro <vdustr@gmail.com> (http://vdustr.dev)
