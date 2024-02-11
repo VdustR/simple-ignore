@@ -17,9 +17,6 @@ importers:
       remeda:
         specifier: ^1.40.1
         version: 1.40.1
-      ts-toolbelt:
-        specifier: ^9.6.0
-        version: 9.6.0
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^2.6.4
@@ -145,7 +142,11 @@ importers:
         specifier: ^5.2.2
         version: 5.3.3
 
-  packages/simple-ignore: {}
+  packages/simple-ignore:
+    dependencies:
+      ts-toolbelt:
+        specifier: ^9.6.0
+        version: 9.6.0
 
   packages/tsconfig: {}
 

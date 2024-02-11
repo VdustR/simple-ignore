@@ -17,20 +17,22 @@
     }
   },
   "bin": {
-    "simple-ignore": "./dist/cli.js"
+    "simple-ignore": "./dist/cli.cjs"
   },
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "run-s build:*",
-    "build:api": "tsup src/index.ts --format esm,cjs",
+    "build:api": "tsup src/index.ts --format esm,cjs --dts --minify",
     "build:cli": "tsup src/cli.ts",
-    "build:dts": "tsc --emitDeclarationOnly --declaration --noEmit false --outDir dist -p src --rootDir src",
     "cli": "tsx src/cli.ts",
     "cp": "run-s cp:*",
     "cp:license": "fse copy ../../LICENSE ./LICENSE",
     "cp:readme": "fse copy ../../README.md ./README.md",
     "prepublishOnly": "pnpm run build && pnpm run cp"
+  },
+  "dependencies": {
+    "ts-toolbelt": "^9.6.0"
   }
 }
