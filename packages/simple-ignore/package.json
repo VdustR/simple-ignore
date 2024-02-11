@@ -1,6 +1,6 @@
 {
   "name": "simple-ignore",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "One `.gitignore` file to rule them all.",
   "license": "MIT",
   "author": {

@@ -1,12 +1,14 @@
-name: GitHub Pages
+name: Publish Package to npm
 on:
   push:
-    branches: main
+    branches:
+      - experimental
+    tags:
+      - v*.*.*
+      - v*.*.*-*
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
@@ -30,11 +32,15 @@ jobs:
             ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
         run: pnpm install
-      - run: pnpm build --base=/${{ github.event.repository.name }}/
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+      - id: version
+        uses: VdustR/semver-action@v0
+      - name: version
+        working-directory: packages/simple-ignore
+        run: npm --no-git-tag-version version ${{ steps.version.outputs.version }}
+      - name: Publish
+        uses: JS-DevTools/npm-publish@v3
         with:
-          branch: gh-pages
-          folder: packages/build/dist
-          clean: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.NPM_TOKEN }}
+          tag: ${{ steps.version.outputs.tag }}
+          package: packages/simple-ignore
+          access: public
